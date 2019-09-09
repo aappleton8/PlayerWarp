@@ -1,0 +1,293 @@
+name: PlayerWarp
+main: me.name.programs.minecraftserverplugins.PlayerWarp.MainClasses.PlayerWarp
+version: Development_0.0.0.0
+description: A plugin that lets Minecraft server players set their own warp locations. 
+authors: [aappleton3]
+database: false
+commands:
+  playerwarp:
+    description: The command to get information about the PlayerWarp plugin
+    usage: /playerwarp 
+  playerwarphelp:
+    description: The command to get help for the PlayerWarp plugin 
+    usage: /playerwarphelp [page_number]
+  warp:
+    description: The command to go to a server warp
+    usage: /warp <warp_name> [<seconds>]
+  setwarp:
+    description: The command to set a server warp
+    usage: /setwarp <warp_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}] 
+  overwritewarp:
+    description: The command to overwrite a server warp
+    usage: /overwritewarp <warp_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}] 
+  delwarp:
+    description: The command to delete a server warp
+    usage: /delwarp <warp_name>
+  seewarp:
+    description: The command to see the location of a server warp
+    usage: /seewarp <warp_name>
+  listwarps:
+    description: The command to list all server warps
+    usage: /listwarps
+  goto:
+    description: The command to go to a main server location
+    usage: /goto <location_name> [<seconds>]
+  setgoto:
+    description: The command to set a main server location
+    usage: /setgoto <location_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}] 
+  overwritegoto:
+    description: The command to overwrite a main server location
+    usage: /overwritegoto <location_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}] 
+  delgoto:
+    description: The command to delete a main server location
+    usage: /delgoto <location_name>
+  seegoto:
+    description: The command to see the location of a main server location
+    usage: /seegoto <location_name>
+  listgotos:
+    description: The command to list all main server locations
+    usage: /listgotos
+  gotopos:
+    description: The command to teleport to certain coordinates 
+    usage: /gotopos [<player_name>] <x> <y> <z> [<yaw> [<pitch> [<roll>]]]
+  setdelay:
+    description: The command to set the personal teleport delay timer
+    usage: /setdelay <seconds> [<player_name>]
+  swarp:
+    description: The command to go to a staff warp
+    usage: /warp <swarp_name> [<seconds>]
+  setswarp:
+    description: The command to set a staff warp
+    usage: /setwarp <swarp_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}] 
+  overwriteswarp:
+    description: The command to overwrite a staff warp
+    usage: /overwritewarp <swarp_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}] 
+  delswarp:
+    description: The command to delete a staff warp
+    usage: /delwarp <swarp_name>
+  seeswarp:
+    description: The command to see the location of a staff warp
+    usage: /seewarp <swarp_name>
+  listswarps:
+    description: The command to list all staff warps
+    usage: /listswarps
+  pwarp:
+    description: The command to go to a player's warp location 
+    usage: /pwarp [<player_name> [<pwarp_name> [<seconds>]]] 
+  setpwarp:
+    description: The command to set a player warp location 
+    usage: /setpwarp [<pwarp_name> [<player_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}]]]
+  overwritepwarp:
+    description: The command to overwrite a player warp 
+    usage: /overwritepwarp [<pwarp_name> [<player_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}]]]
+  delpwarp:
+    description: The command to remove a player warp location 
+    usage: /delpwarp [<pwarp_name> [<player_name>]]
+  seepwarp:
+    description: The command to see the location of a player warp
+    usage: /seepwarp [<pwarp_name> [<player_name>]]
+  listpwarps:
+    description: The command to list all the player warps of a player
+    usage: /listpwarps [<player_name>]
+  home:
+    description: The command to go to a player's home 
+    usage: /home [<home_name> [<player_name> [<seconds>]]] 
+  sethome:
+    description: The command to set a player's home location 
+    usage: /sethome [<home_name> [<player_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}]]]
+  overwritehome:
+    description: The command to overwrite a player's home 
+    usage: /overwritehome [<home_name> [<player_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}]]]
+  delhome:
+    description: The command to delete a player's home 
+    usage: /delhome [<home_name> [<player_name>]]
+  seehome:
+    description: The command to see the location of a player's home 
+    usage: /seepwarp [<home_name> [<player_name>]] 
+  listhomes:
+    description: The command to list all the homes of a player 
+    usage: /listhomes [<player_name>]
+  playerwarpconfig:
+    description: The command to set and see main config values
+    usage: /playerwarpconfig {set <field> <value>}|{see <field>} 
+  removeallwarps:
+    description: The command to remove all warps 
+    usage: /removeallwarps warp|goto|swarp|{pwarp|home [<player_name>]}
+permissions:
+  playerwarp.*:
+    description: The base command of the PlayerWarp plugin
+    default: op
+    children:
+      playerwarp.warp.*: true
+      playerwarp.goto.*: true
+      playerwarp.swarp.*: true
+      playerwarp.pwarp.*: true
+      playerwarp.home.*: true
+      playerwarp.gotopos.others: true
+      playerwarp.setdelay.others: true
+      playerwarp.config.*: true
+      playerwarp.removeallwarps.*: true
+  playerwarp.warp.*: 
+    description: The base command for warps 
+    default: op
+    children:
+      playerwarp.warp.go.*: true
+      playerwarp.warp.see.*: true
+      playerwarp.warp.del.*: true
+      playerwarp.warp.ovr.*: true
+      playerwarp.warp.set.*: true
+      playerwarp.warp.list.*: true
+  playerwarp.warp.go.*:
+    description: The command to go to all warps 
+    default: op
+  playerwarp.warp.see.*:
+    description: The command to see the location of all warps 
+    default: op
+  playerwarp.warp.del.*:
+    description: The command to delete all warps 
+    default: op
+  playerwarp.warp.ovr.*:
+    description: The command to overwrite all warps 
+    default: op
+  playerwarp.warp.set.*:
+    description: The command to set any warp
+    default: op
+  playerwarp.warp.list.*:
+    description: The command to list all warps
+    default: op
+    children:
+      playerwarp.warp.list: true
+  playerwarp.warp.list:
+    description: The ability to be able to list warps 
+    default: op
+  playerwarp.goto.*: 
+    description: The base command for gotos 
+    default: op
+    children:
+      playerwarp.goto.go.*: true
+      playerwarp.goto.see.*: true
+      playerwarp.goto.del.*: true
+      playerwarp.goto.ovr.*: true
+      playerwarp.goto.set.*: true
+      playerwarp.goto.list.*: true
+  playerwarp.goto.go.*:
+    description: The command to go to all gotos
+    default: op
+  playerwarp.goto.see.*:
+    description: The command to see the location of all gotos
+    default: op
+  playerwarp.goto.del.*:
+    description: The command to delete all gotos
+    default: op
+  playerwarp.goto.ovr.*:
+    description: The command to overwrite all gotos
+    default: op
+  playerwarp.goto.set.*:
+    description: The command to set any goto
+    default: op
+  playerwarp.goto.list.*:
+    description: The command to list all gotos
+    default: op
+    children:
+      playerwarp.goto.list: true
+  playerwarp.goto.list:
+    description: The ability to be able to list gotos 
+    default: op
+  playerwarp.swarp.*: 
+    description: The base command for warps 
+    default: op
+    children:
+      playerwarp.swarp.go.*: true
+      playerwarp.swarp.see.*: true
+      playerwarp.swarp.del.*: true
+      playerwarp.swarp.ovr.*: true
+      playerwarp.swarp.set.*: true
+      playerwarp.swarp.list.*: true
+  playerwarp.swarp.go.*:
+    description: The command to go to all staff warps 
+    default: op
+  playerwarp.swarp.see.*:
+    description: The command to see the location of all staff warps 
+    default: op
+  playerwarp.swarp.del.*:
+    description: The command to delete all staff warps 
+    default: op
+  playerwarp.swarp.ovr.*:
+    description: The command to overwrite all staff warps 
+    default: op
+  playerwarp.swarp.set.*:
+    description: The command to set any staff warp
+    default: op
+  playerwarp.swarp.list.*:
+    description: The command to list all warps
+    default: op
+    children:
+      playerwarp.swarp.list: true
+  playerwarp.swarp.list:
+    description: The ability to be able to list staff warps 
+    default: op 
+  playerwarp.pwarp.*:
+    description: The base command for all player warps 
+    default: op
+    children:
+      playerwarp.pwarp.go.others.*: true
+      playerwarp.pwarp.see.others.*: true
+      playerwarp.pwarp.del.others.*: true
+      playerwarp.pwarp.ovr.others.*: true
+      playerwarp.pwarp.set.others.*: true
+      playerwarp.pwarp.list.others.*: true
+  playerwarp.pwarp.go.others.*: true
+    description: The command to go to another player's player warps 
+    default: op
+    children:
+      playerwarp.pwarp.go.self.*: true
+  playerwarp.home.*:
+    description: The base command for all player homes 
+    default: op
+    children:
+      playerwarp.home.go.others.*: true
+      playerwarp.home.see.others.*: true
+      playerwarp.home.del.others.*: true
+      playerwarp.home.ovr.others.*: true
+      playerwarp.home.set.others.*: true
+      playerwarp.home.list.others.*: true
+  playerwarp.gotopos.others:
+    description: The command to send another player to certain coordinates
+    default: op
+    children:
+      playerwarp.gotopos: true
+  playerwarp.gotopos:
+    description: The command to go to certain coordinates
+    default: op
+  playerwarp.setdelay.others:
+    description: The command to set a player's default teleport delay
+    default: op
+    children:
+      playerwarp.setdelay: true
+  playerwarp.setdelay:
+    description: The command to set your defult teleport timer
+    default: op
+  playerwarp.config.*:
+    description: The base command to manage the main configuration of the PlayerWarp plugin 
+    default: op
+  playerwarp.removeallwarps.*:
+    description: The command to remove all warps and locations 
+    default: op
+    children:
+      playerwarp.removeallwarps.warp: true
+      playerwarp.removeallwarps.goto: true
+      playerwarp.removeallwarps.swarp: true
+      playerwarp.removeallwarps.pwarp: true
+  playerwarp.removeallwarps.warp:
+    description: The command to remove all server warps 
+    default: op
+  playerwarp.removeallwarps.goto:
+    description: The command to remove all gotos 
+    default: op
+  playerwarp.removeallwarps.swarp:
+    description: The command to remove all staff warps 
+    default: op
+  playerwarp.removeallwarps.pwarp:
+    description: The command to remove all player warps 
+    default: op
+

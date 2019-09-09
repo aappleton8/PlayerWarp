@@ -1,0 +1,5 @@
+# Ignore the classpath file 
+*.classpath
+
+# Ignore the /bin/ folder 
+/bin/
