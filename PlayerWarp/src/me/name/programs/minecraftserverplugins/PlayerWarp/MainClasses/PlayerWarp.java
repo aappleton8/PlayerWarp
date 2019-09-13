@@ -11,11 +11,19 @@ public class PlayerWarp extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
-		
+		registerCommands(); 
 	}
 	
 	@Override
 	public void onDisable() {
+		
+	}
+	
+	private void registerCommands() {
+		
+	}
+	
+	public void registerPermissions() {
 		
 	}
 	

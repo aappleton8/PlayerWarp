@@ -8,33 +8,43 @@ commands:
   playerwarp:
     description: The command to get information about the PlayerWarp plugin
     usage: /playerwarp 
+    aliases: [pw]
   playerwarphelp:
     description: The command to get help for the PlayerWarp plugin 
     usage: /playerwarphelp [page_number]
+    aliases: [pwhelp, pwh]
   warp:
     description: The command to go to a server warp
     usage: /warp <warp_name> [<seconds>]
+    aliases: [w]
   setwarp:
     description: The command to set a server warp
     usage: /setwarp <warp_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}] 
+    aliases: [setw, sw]
   overwritewarp:
     description: The command to overwrite a server warp
     usage: /overwritewarp <warp_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}] 
+    aliases: [overwritew, overw, ow]
   delwarp:
     description: The command to delete a server warp
     usage: /delwarp <warp_name>
+    aliases: [delw, dw]
   seewarp:
     description: The command to see the location of a server warp
     usage: /seewarp <warp_name>
+    aliases: [sew]
   listwarps:
     description: The command to list all server warps
     usage: /listwarps
+    aliases: [listw, lw]
   goto:
     description: The command to go to a main server location
     usage: /goto <location_name> [<seconds>]
+    aliases: [go, g]
   setgoto:
     description: The command to set a main server location
     usage: /setgoto <location_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}] 
+    aliases: [setgo, setg, sg]
   overwritegoto:
     description: The command to overwrite a main server location
     usage: /overwritegoto <location_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}] 
