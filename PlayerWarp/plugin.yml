@@ -65,22 +65,40 @@ commands:
     usage: /setdelay <seconds> [<player_name>]
   swarp:
     description: The command to go to a staff warp
-    usage: /warp <swarp_name> [<seconds>]
+    usage: /swarp <swarp_name> [<seconds>]
   setswarp:
     description: The command to set a staff warp
-    usage: /setwarp <swarp_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}] 
+    usage: /setswarp <swarp_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}] 
   overwriteswarp:
     description: The command to overwrite a staff warp
-    usage: /overwritewarp <swarp_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}] 
+    usage: /overwriteswarp <swarp_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}] 
   delswarp:
     description: The command to delete a staff warp
-    usage: /delwarp <swarp_name>
+    usage: /delswarp <swarp_name>
   seeswarp:
     description: The command to see the location of a staff warp
-    usage: /seewarp <swarp_name>
+    usage: /seeswarp <swarp_name>
   listswarps:
     description: The command to list all staff warps
     usage: /listswarps
+  mwarp:
+    description: The command to go to a maintenance warp
+    usage: /mwarp <mwarp_name> [<seconds>]
+  setmwarp:
+    description: The command to set a maintenance warp
+    usage: /setmwarp <mwarp_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}] 
+  overwritemwarp:
+    description: The command to overwrite a maintenance warp
+    usage: /overwritemwarp <mwarp_name> [nodirection|{<x> <y> <z> [<yaw> [<pitch> [<roll>]]]}] 
+  delmwarp:
+    description: The command to delete a maintenance warp
+    usage: /delmwarp <mwarp_name>
+  seemwarp:
+    description: The command to see the location of a maintenance warp
+    usage: /seemwarp <mwarp_name>
+  listmwarps:
+    description: The command to list all maintenance warps
+    usage: /listmwarps
   pwarp:
     description: The command to go to a player's warp location 
     usage: /pwarp [<player_name> [<pwarp_name> [<seconds>]]] 
